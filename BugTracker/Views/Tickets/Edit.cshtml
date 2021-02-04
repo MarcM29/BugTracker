@@ -1,0 +1,63 @@
+﻿@model BugTracker.Models.Ticket
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@{ 
+    DateTime thisDay = DateTime.Today;
+}
+<h1>Edit</h1>
+
+<h4>Ticket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TicketTitle" class="control-label"></label>
+                <input asp-for="TicketTitle" class="form-control" />
+                <span asp-validation-for="TicketTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketDescription" class="control-label"></label>
+                <textarea rows="5" cols="30" asp-for="TicketDescription" class="form-control"></textarea>
+                <span asp-validation-for="TicketDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketPriority" class="control-label"></label>
+                <select asp-for="TicketPriority" class="form-control">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <span asp-validation-for="TicketPriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketDate" class="control-label"></label>
+                <input style="background-color: lightgrey;" asp-for="TicketDate" value="@thisDay.ToString("d");" class="form-control" readonly/>
+                <span asp-validation-for="TicketDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsersName" class="control-label"></label>
+                <input style="background-color: lightgrey;" asp-for="UsersName" value="@User.Identity.Name" class="form-control" readonly />
+                <span asp-validation-for="UsersName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
