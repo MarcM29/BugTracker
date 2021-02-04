@@ -41,34 +41,30 @@ namespace BugTracker.Controllers
         }
 
         // POST: Assign
-        public void AssignFinal(string DevName, int AssignedTicketId)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AssignFinal(string DevName, int AssignedTicketId)
         {
 
-            string assignedDev = DevName;
-            int ticketId = AssignedTicketId;
             Dev dev = new Dev();
-            dev.AssignedTicketId = ticketId;
-            dev.DevName = assignedDev;
-            AssignFinalToDB(dev);
+            dev.AssignedTicketId = AssignedTicketId;
+            dev.DevName = DevName;
+            _context.Add(dev);
+            await _context.SaveChangesAsync();
+            return View();
+            //AssignFinalToDB(dev);
             //return dev.AssignedTicketId.ToString() + " " + dev.DevName;
         }
 
         //POST: Devs/Assign
-        public string AssignFinalToDB([Bind("DevName, AssignedTicketId")] Dev dev)
-        {
-            return dev.AssignedTicketId + " " + dev.DevName;
-        }
+
         /*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AssignFinalToDB([Bind("DevName, AssignedTicketId")] Dev dev)
         {
-            if (ModelState.IsValid)
-            {
                 _context.Add(dev);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(dev);
+                return View("Index");
         }*/
 
         // GET: Devs/Details/5
