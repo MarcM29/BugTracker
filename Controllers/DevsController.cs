@@ -35,11 +35,41 @@ namespace BugTracker.Controllers
         // GET: Devs/Assign
         public IActionResult Assign(int TicketID)
         {
+            var users = userManager.Users;
             ViewBag.TicketID = TicketID;
-            return View("Assign");
+            return View(users);
         }
 
+        // POST: Assign
+        public void AssignFinal(string DevName, int AssignedTicketId)
+        {
 
+            string assignedDev = DevName;
+            int ticketId = AssignedTicketId;
+            Dev dev = new Dev();
+            dev.AssignedTicketId = ticketId;
+            dev.DevName = assignedDev;
+            AssignFinalToDB(dev);
+            //return dev.AssignedTicketId.ToString() + " " + dev.DevName;
+        }
+
+        //POST: Devs/Assign
+        public string AssignFinalToDB([Bind("DevName, AssignedTicketId")] Dev dev)
+        {
+            return dev.AssignedTicketId + " " + dev.DevName;
+        }
+        /*[HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AssignFinalToDB([Bind("DevName, AssignedTicketId")] Dev dev)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(dev);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(dev);
+        }*/
 
         // GET: Devs/Details/5
         public async Task<IActionResult> Details(int? id)
