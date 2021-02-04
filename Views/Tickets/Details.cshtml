@@ -42,7 +42,16 @@
         </dd>
     </dl>
 </div>
+<form asp-controller="Devs" asp-action="Assign">
+<div class="form-group">
+    <label for="TicketID" class="control-label"></label>
+    <input type="hidden" name="TicketID" value="@Model.Id" class="form-control" readonly/>
+</div>
+<div class="form-group">
+    <input type="submit" value="Assign a dev" class="btn btn-primary" />
+</div>
+</form>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Tickets</a>
 </div>

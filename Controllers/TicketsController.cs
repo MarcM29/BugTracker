@@ -81,7 +81,7 @@ namespace BugTracker.Controllers
         }
 
         // GET: Tickets/Edit/5
-        /*
+        
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -133,7 +133,7 @@ namespace BugTracker.Controllers
             }
             return View(ticket);
         }
-        */
+        
 
         // GET: Tickets/Delete/5
         [Authorize]

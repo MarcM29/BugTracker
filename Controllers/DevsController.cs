@@ -32,6 +32,15 @@ namespace BugTracker.Controllers
             return View(users);
         }
 
+        // GET: Devs/Assign
+        public IActionResult Assign(int TicketID)
+        {
+            ViewBag.TicketID = TicketID;
+            return View("Assign");
+        }
+
+
+
         // GET: Devs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -47,28 +56,6 @@ namespace BugTracker.Controllers
                 return NotFound();
             }
 
-            return View(dev);
-        }
-
-        // GET: Devs/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Devs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DevId,DevName")] Dev dev)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(dev);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
             return View(dev);
         }
 
