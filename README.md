@@ -1,3 +1,3 @@
-# BugTracker <br /> <br />
-Authors: Marc McCombe
+# BugTracker 
+Authors: Marc McCombe <br /> <br />
 # *Work in progress*
