@@ -9,11 +9,11 @@ namespace BugTracker.Models
     public class Dev
     {
         public int DevId { get; set; }
-        [Display(Name = "Assigned developers name")]
+        [Display(Name = "Assigned developer")]
         [Required(ErrorMessage = "Must include a developers name in order to assign the ticket")]
         public string DevName { get; set; }
 
-        [Display(Name = "Assigned tickets ID")]
+        [Display(Name = "Assigned ticket ID")]
         public int AssignedTicketId { get; set; }
         public Dev()
         {

@@ -32,6 +32,11 @@ namespace BugTracker.Controllers
             return View(users);
         }
 
+        public async Task<IActionResult> ViewAssignedDevs()
+        {
+            return View(await _context.Dev.ToListAsync());
+        }
+
         // GET: Devs/Assign
         public IActionResult Assign(int TicketID)
         {
@@ -55,17 +60,6 @@ namespace BugTracker.Controllers
             //AssignFinalToDB(dev);
             //return dev.AssignedTicketId.ToString() + " " + dev.DevName;
         }
-
-        //POST: Devs/Assign
-
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AssignFinalToDB([Bind("DevName, AssignedTicketId")] Dev dev)
-        {
-                _context.Add(dev);
-                await _context.SaveChangesAsync();
-                return View("Index");
-        }*/
 
         // GET: Devs/Details/5
         public async Task<IActionResult> Details(int? id)
