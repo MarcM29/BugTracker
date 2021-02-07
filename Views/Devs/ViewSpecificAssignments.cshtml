@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BugTracker.Models.Dev>
+
+@{
+    ViewData["Title"] = "ViewAssignedDevs";
+}
+
+<h1>Developers Assigned to this Ticket</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                This Ticket ID:
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedTicketId)
+            </td>
+            <td>
+                <a asp-controller="Tickets" asp-action="Details" asp-route-id="@item.AssignedTicketId">Back to ticket details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -56,5 +56,6 @@
 
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to Tickets</a>
+    <a asp-action="Index">All Tickets</a> |
+    <a asp-controller="Devs" asp-action="SpecificAssignments" asp-route-id="@Model.Id">See Assigned Developers</a>
 </div>

@@ -32,6 +32,18 @@ namespace BugTracker.Controllers
             return View(users);
         }
 
+        public async Task<IActionResult> SpecificAssignments(int Id)
+        {
+            return View("ViewSpecificAssignments", await _context.Dev.Where(j => j.AssignedTicketId == Id).ToListAsync());
+        }
+
+        // GET: MyTickets
+        public async Task<IActionResult> MyTickets()
+        {
+            var userTemp = User.Identity.Name;
+            return View("ViewMyTickets", await _context.Dev.Where(j => j.DevName.Contains(userTemp)).ToListAsync());
+        }
+
         public async Task<IActionResult> ViewAssignedDevs()
         {
             return View(await _context.Dev.ToListAsync());
