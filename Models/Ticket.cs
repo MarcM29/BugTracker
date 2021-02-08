@@ -22,10 +22,10 @@ namespace BugTracker.Models
         [Required(ErrorMessage = "Submitted tickets must be designated a priority")]
         public string TicketPriority { get; set; }
 
-        [Display(Name = "Current Date:")]
+        [Display(Name = "Date of most recent edit:")]
         public string TicketDate { get; set; }
 
-        [Display(Name = "Ticket creator:")]
+        [Display(Name = "Most recent edit by:")]
         public string UsersName { get; set; }
 
         public Ticket()

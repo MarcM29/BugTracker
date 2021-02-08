@@ -25,7 +25,8 @@
                 Ticket ID: @Html.DisplayFor(modelItem => item.AssignedTicketId)
             </td>
             <td>
-                | <a asp-controller="Tickets" asp-action="Details" asp-route-id="@item.AssignedTicketId">Details</a> | 
+                <a asp-controller="Tickets" asp-action="Details" asp-route-id="@item.AssignedTicketId">Details</a> |
+                <a asp-controller="Tickets" asp-action="Delete" asp-route-id="@item.AssignedTicketId">Close</a>
             </td>
         </tr>
         }

@@ -8,9 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BugTracker.Data;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Identity;
-
-
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace BugTracker.Controllers
 {
@@ -38,6 +36,7 @@ namespace BugTracker.Controllers
         }
 
         // GET: MyTickets
+        [Authorize]
         public async Task<IActionResult> MyTickets()
         {
             var userTemp = User.Identity.Name;
@@ -50,6 +49,7 @@ namespace BugTracker.Controllers
         }
 
         // GET: Devs/Assign
+        [Authorize]
         public IActionResult Assign(int TicketID)
         {
             var users = userManager.Users;
@@ -58,6 +58,7 @@ namespace BugTracker.Controllers
         }
 
         // POST: Assign
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AssignFinal(string DevName, int AssignedTicketId)
@@ -92,6 +93,7 @@ namespace BugTracker.Controllers
         }
 
         // GET: Devs/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -110,6 +112,7 @@ namespace BugTracker.Controllers
         // POST: Devs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("DevId,DevName")] Dev dev)
@@ -143,6 +146,7 @@ namespace BugTracker.Controllers
         }
 
         // GET: Devs/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -161,6 +165,7 @@ namespace BugTracker.Controllers
         }
 
         // POST: Devs/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -11,7 +11,7 @@
         <div class="col-md-4">
             <form asp-action="AssignFinal">
                 <div class="form-group">
-                    <label for="DevName" class="control-label"></label>
+                    <label for="DevName" class="control-label">Select a developer:</label>
                     <select name="DevName" class="form-control">
                         @foreach (var user in Model)
                         {
@@ -21,7 +21,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="AssignedTicketId" class="control-label"></label>
+                    <label for="AssignedTicketId" class="control-label">Selected ticket ID:</label>
                     <input style="background-color: lightgrey;" name="AssignedTicketId" value="@ViewBag.TicketID" class="form-control" readonly />
                 </div>
                 <div class="form-group">
