@@ -1,0 +1,51 @@
+﻿@model BugTracker.Models.ResolvedTicket
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ResolvedTicket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RTicketTitle" class="control-label"></label>
+                <input asp-for="RTicketTitle" class="form-control" />
+                <span asp-validation-for="RTicketTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RTicketDescription" class="control-label"></label>
+                <input asp-for="RTicketDescription" class="form-control" />
+                <span asp-validation-for="RTicketDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RTicketPriority" class="control-label"></label>
+                <input asp-for="RTicketPriority" class="form-control" />
+                <span asp-validation-for="RTicketPriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RTicketDate" class="control-label"></label>
+                <input asp-for="RTicketDate" class="form-control" />
+                <span asp-validation-for="RTicketDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RUsersName" class="control-label"></label>
+                <input asp-for="RUsersName" class="form-control" />
+                <span asp-validation-for="RUsersName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

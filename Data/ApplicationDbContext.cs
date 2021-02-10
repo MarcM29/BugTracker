@@ -15,6 +15,7 @@ namespace BugTracker.Data
         }
         public DbSet<BugTracker.Models.Ticket> Ticket { get; set; }
         public DbSet<BugTracker.Models.Dev> Dev { get; set; }
+        public DbSet<BugTracker.Models.ResolvedTicket> ResolvedTicket { get; set; }
 
     }
 }

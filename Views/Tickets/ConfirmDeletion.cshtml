@@ -1,0 +1,54 @@
+﻿@model BugTracker.Models.ResolvedTicket
+
+@{
+    List<string> ClosedTicket = new List<string>(6);
+    foreach (var std in ViewBag.ClosedTicketInfo)
+    {
+        ClosedTicket.Add(std);
+    }
+}
+
+<h4>Confirm Identity and Date</h4>
+<hr />
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ConfirmDeletion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="RTicketTitle" value="@ClosedTicket[1]"class="form-control" type="hidden"/>
+                <span asp-validation-for="RTicketTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="RTicketDescription" value="@ClosedTicket[2]" class="form-control" type="hidden"/>
+                <span asp-validation-for="RTicketDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="RTicketPriority" value="@ClosedTicket[3]" class="form-control" type="hidden"/>
+                <span asp-validation-for="RTicketPriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RTicketDate" class="control-label"></label>
+                <input asp-for="RTicketDate" value="@ClosedTicket[4]" class="form-control" readonly/>
+                <span asp-validation-for="RTicketDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RUsersName" class="control-label"></label>
+                <input asp-for="RUsersName" value="@ClosedTicket[5]" class="form-control" readonly/>
+                <span asp-validation-for="RUsersName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirm and Close" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-controller="Tickets" asp-action="Index">Cancel</a>
+</div>
+

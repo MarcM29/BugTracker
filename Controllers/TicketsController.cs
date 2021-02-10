@@ -158,12 +158,24 @@ namespace BugTracker.Controllers
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             var ticket = await _context.Ticket.FindAsync(id);
-            _context.Ticket.Remove(ticket);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            string tempID = id.ToString();
+            var closedTicketInfo = new List<string>
+            {
+                tempID, ticket.TicketTitle, ticket.TicketDescription, ticket.TicketPriority, ticket.TicketDate, ticket.UsersName
+            };
+            ViewBag.ClosedTicketInfo = closedTicketInfo;
+            return View("ConfirmDeletion");
+            //return View("Index", await _context.Ticket.Where(j => j.Id==id).ToListAsync());
+            //string url = string.Format("/ResolvedTickets/index?ticketTitle={0}", ticket.TicketTitle);
+            //return Redirect(url);
+            //var ticket = await _context.Ticket.FindAsync(id);
+            //_context.Ticket.Remove(ticket);
+            //await _context.SaveChangesAsync();
+            //return RedirectToAction(nameof(Index));
         }
 
         private bool TicketExists(int id)

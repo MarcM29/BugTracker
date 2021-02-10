@@ -18,7 +18,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul style="font-size: 15px;" class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Tickets" asp-action="ShowSearchForm">Search</a>
                         </li>
@@ -26,7 +26,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Devs" asp-action="Index">Developers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tickets" asp-action="Index">Tickets</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tickets" asp-action="Index">Open Tickets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ResolvedTickets" asp-action="Index">Closed Tickets</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Devs" asp-action="ViewAssignedDevs">All Ticket Assignments</a>
