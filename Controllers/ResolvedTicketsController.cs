@@ -54,7 +54,7 @@ namespace BugTracker.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RTicketTitle,RTicketDescription,RTicketPriority,RTicketDate,RUsersName")] ResolvedTicket resolvedTicket)
+        public async Task<IActionResult> ConfirmDeletion([Bind("Id,RTicketTitle,RTicketDescription,RTicketPriority,RTicketDate,RUsersName")] ResolvedTicket resolvedTicket)
         {
             if (ModelState.IsValid)
             {
@@ -137,7 +137,7 @@ namespace BugTracker.Controllers
         // POST: ResolvedTickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var resolvedTicket = await _context.ResolvedTicket.FindAsync(id);
             _context.ResolvedTicket.Remove(resolvedTicket);

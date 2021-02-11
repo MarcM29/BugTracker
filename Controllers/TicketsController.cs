@@ -168,6 +168,7 @@ namespace BugTracker.Controllers
                 tempID, ticket.TicketTitle, ticket.TicketDescription, ticket.TicketPriority, ticket.TicketDate, ticket.UsersName
             };
             ViewBag.ClosedTicketInfo = closedTicketInfo;
+            delEntry(id);
             return View("ConfirmDeletion");
             //return View("Index", await _context.Ticket.Where(j => j.Id==id).ToListAsync());
             //string url = string.Format("/ResolvedTickets/index?ticketTitle={0}", ticket.TicketTitle);
@@ -176,6 +177,14 @@ namespace BugTracker.Controllers
             //_context.Ticket.Remove(ticket);
             //await _context.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));
+        }
+
+        [ValidateAntiForgeryToken]
+        public async void delEntry(int id)
+        {
+            var ticket = await _context.Ticket.FindAsync(id);
+            _context.Ticket.Remove(ticket);
+            await _context.SaveChangesAsync();
         }
 
         private bool TicketExists(int id)
