@@ -168,7 +168,8 @@ namespace BugTracker.Controllers
                 tempID, ticket.TicketTitle, ticket.TicketDescription, ticket.TicketPriority, ticket.TicketDate, ticket.UsersName
             };
             ViewBag.ClosedTicketInfo = closedTicketInfo;
-            delEntry(id);
+            delTicketEntry(id);
+            delDevEntry(id);
             return View("ConfirmDeletion");
             //return View("Index", await _context.Ticket.Where(j => j.Id==id).ToListAsync());
             //string url = string.Format("/ResolvedTickets/index?ticketTitle={0}", ticket.TicketTitle);
@@ -180,11 +181,22 @@ namespace BugTracker.Controllers
         }
 
         [ValidateAntiForgeryToken]
-        public async void delEntry(int id)
+        public async void delTicketEntry(int id)
         {
             var ticket = await _context.Ticket.FindAsync(id);
             _context.Ticket.Remove(ticket);
             await _context.SaveChangesAsync();
+        }
+
+        [ValidateAntiForgeryToken]
+        public async void delDevEntry(int id)
+        {
+            var dev = await _context.Dev.Where(j => j.AssignedTicketId == id).ToListAsync();
+            foreach(var item in dev)
+            {
+                _context.Dev.Remove(item);
+                await _context.SaveChangesAsync();
+            }
         }
 
         private bool TicketExists(int id)
