@@ -65,56 +65,7 @@ namespace BugTracker.Controllers
             return View(resolvedTicket);
         }
 
-        // GET: ResolvedTickets/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var resolvedTicket = await _context.ResolvedTicket.FindAsync(id);
-            if (resolvedTicket == null)
-            {
-                return NotFound();
-            }
-            return View(resolvedTicket);
-        }
-
-        // POST: ResolvedTickets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,RTicketTitle,RTicketDescription,RTicketPriority,RTicketDate,RUsersName")] ResolvedTicket resolvedTicket)
-        {
-            if (id != resolvedTicket.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(resolvedTicket);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ResolvedTicketExists(resolvedTicket.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(resolvedTicket);
-        }
+        
 
         // GET: ResolvedTickets/Delete/5
         public async Task<IActionResult> Delete(int? id)
