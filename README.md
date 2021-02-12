@@ -14,3 +14,4 @@ Author: Marc McCombe <br /> <br />
 - [ ] -Provide a user friendly view consisting of open tickets vs. closed tickets, high vs. medium vs. low priority tickets, etc.  <br />
 - [x] -Provide proper authorization measures at appropriate places <br />
 - [ ] -Add CSS and bootstrap to create clean UI
+- [ ] -Host this app (Azure)
