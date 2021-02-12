@@ -2,7 +2,7 @@
 Author: Marc McCombe <br /> <br />
 # *Work in progress*
 # Features/Requirements
--[ ] Let developers register and login on the site
+-[] Let developers register and login on the site
 -[ ] Let developers create tickets with title, description, priority, date, etc.
 -[ ] Let other developers view existing tickets
 -[ ] Create the functionality of viewing and editting tickets
