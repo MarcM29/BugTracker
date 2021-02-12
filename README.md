@@ -1,6 +1,5 @@
 # BugTracker (C#, ASP.NET MVC, SQL, RAZOR)
 Author: Marc McCombe <br /> <br />
-# *Work in progress*
 # Features/Requirements
 - [x] Let developers register and login on the site <br />
 - [x] Let developers create tickets with title, description, priority, date, etc. <br />
