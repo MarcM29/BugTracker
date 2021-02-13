@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BugTracker</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -19,23 +19,36 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul style="font-size: 15px;" class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tickets" asp-action="ShowSearchForm">Search</a>
+                            <form class="form-inline" asp-controller="Tickets" asp-action="ShowSearchResults">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search for a ticket" name="SearchPhrase" autocomplete="off">
+                                <input style="margin-right: 15px;" type="submit" value="Search" class="btn btn-primary">
+                            </form>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Devs" asp-action="Index">Developers</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tickets
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Tickets" asp-action="Index">Open Tickets</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="ResolvedTickets" asp-action="Index">Closed Tickets</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tickets" asp-action="Index">Open Tickets</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ticket Assignments
+                            </a>
+                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Devs" asp-action="ViewAssignedDevs">All Ticket Assignments</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Devs" asp-action="MyTickets">My Ticket Assignments</a>
+                            </div>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ResolvedTickets" asp-action="Index">Closed Tickets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Devs" asp-action="ViewAssignedDevs">All Ticket Assignments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Devs" asp-action="MyTickets">My Ticket Assignments</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Devs" asp-action="Index">Developers</a>
                         </li>
                     </ul>
                 </div>
