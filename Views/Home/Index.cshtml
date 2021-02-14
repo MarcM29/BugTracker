@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,73 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div id="piechart" style="float: left; width:49.5%"></div>
+<div id="barchart" style="float: left; width:49.5%"></div><br/>
+<div id="summary" style="float: left; width: 100%;"></div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', '# of tickets', { role: 'style' }],
+                ['High', @ViewBag.HighNum, '#f53131'],
+                ['Medium', @ViewBag.MedNum, '#3CAEA3'],
+            ['Low', @ViewBag.LowNum, '#20639B']
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+            'title': 'Priorities of All Tickets', 'width': 550, 'height': 400, legend: { position: 'none' }, fontSize: 16  };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+        chart.draw(data, options);
+
+        drawPieChart();
+    }
+    function drawPieChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', '# of tickets', { role: 'style' }],
+            ['Closed', @ViewBag.RTicketNum, '#173F5F'],
+            ['Open', @ViewBag.TicketNum, '#e03c14']
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Open Tickets vs. Closed Tickets', 'width': 550, 'height': 400, colors: ['#173F5F', '#e03c14'], fontSize: 16};
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+
+        drawSummaryChart();
+    }
+    function drawSummaryChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Low', { role: 'style' }, 'Medium', { role: 'style' }, 'High', { role: 'style' }],
+            ['Open', @ViewBag.TLowNum, '#20639B', @ViewBag.TMedNum, '#3CAEA3', @ViewBag.THighNum, '#f53131'],
+            ['Closed', @ViewBag.RLowNum, '#20639B', @ViewBag.RMedNum, '#3CAEA3', @ViewBag.RHighNum, '#f53131']
+        ]);
+
+        var options = {
+            title: 'Summary',
+            width: 1100,
+            height: 500,
+            fontSize: 16,
+            legend: { position: 'top', maxLines: 3 },
+            bar: { groupWidth: '75%' },
+            colors: ['#20639B', '#3CAEA3', '#f53131'],
+            isStacked: true
+        };
+        var chart = new google.visualization.BarChart(document.getElementById('summary'));
+        chart.draw(data, options);
+
+    }
+</script>
