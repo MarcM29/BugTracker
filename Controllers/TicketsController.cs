@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BugTracker.Data;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading;
 
 namespace BugTracker.Controllers
 {
@@ -191,6 +192,8 @@ namespace BugTracker.Controllers
         [ValidateAntiForgeryToken]
         public async void delDevEntry(int id)
         {
+            int milliseconds = 1000;
+            Thread.Sleep(milliseconds);
             var dev = await _context.Dev.Where(j => j.AssignedTicketId == id).ToListAsync();
             foreach(var item in dev)
             {
