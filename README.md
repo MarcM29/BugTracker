@@ -11,7 +11,8 @@ Author: Marc McCombe <br /> <br />
 - [x] -Provide a search feature for finding tickets <br />
 - [x] -Provide a method of viewing ALL registered devs <br />
 - [x] -Create the functionality of closing tickets -> (also closing all developer assignments associated with closed ticket) + (store closed tickets) <br />
-- [ ] -Provide a user friendly view consisting of open tickets vs. closed tickets, high vs. medium vs. low priority tickets, etc.  <br />
+- [x] -Provide a user friendly view consisting of open tickets vs. closed tickets, high vs. medium vs. low priority tickets, etc.  <br />
 - [x] -Provide proper authorization measures at appropriate places <br />
 - [ ] -Add CSS and bootstrap to create clean UI (in progress)
-- [ ] -Host this app (Azure)
+- [ ] -Debug app (eternally in progress)
+- [ ] -Host this app (Azure?)
