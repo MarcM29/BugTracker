@@ -1,4 +1,4 @@
-# BugTracker (C#, ASP.NET MVC, SQL, RAZOR)
+# BugTracker (C#, ASP.NET MVC, SQL, RAZOR, BOOTSTRAP)
 Author: Marc McCombe <br /> <br />
 # Features/Requirements
 - [x] -Let developers register and login on the site <br />
