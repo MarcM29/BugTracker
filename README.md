@@ -1,5 +1,6 @@
 # BugTracker (C#, ASP.NET MVC, SQL, RAZOR, BOOTSTRAP)
-Author: Marc McCombe <br />
+Author: Marc McCombe <br /><br />
+# Demo
 Demo video: https://youtu.be/WOpiVQAd2NE <br /><br />
 # Features/Requirements
 - [x] -Let developers register and login on the site <br />
