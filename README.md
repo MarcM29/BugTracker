@@ -1,7 +1,7 @@
 # BugTracker (C#, ASP.NET MVC, SQL, RAZOR, BOOTSTRAP)
 Author: Marc McCombe <br /><br />
 # Demo
-Demo video: https://youtu.be/WOpiVQAd2NE <br /><br />
+Demo video (youtube): https://youtu.be/WOpiVQAd2NE <br /><br />
 # Features/Requirements
 - [x] -Let developers register and login on the site <br />
 - [x] -Let developers create tickets with title, description, priority, date, etc. <br />
