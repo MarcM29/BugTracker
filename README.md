@@ -1,6 +1,6 @@
 # BugTracker App (C#, ASP.NET MVC, SQL, RAZOR, BOOTSTRAP)
 Author: Marc McCombe <br /><br />
--This project was done to get more familiar with developing a more complex, fully functional web app using C#, ASP.NET MVC, SQL, RAZOR & Bootstrap.
+-This project was done to get more familiar with developing a more complex, fully functional web app with an associated database: using C#, ASP.NET MVC, SQL, RAZOR & Bootstrap.
 # Demo video
 Demo video (youtube): https://youtu.be/WOpiVQAd2NE <br /><br />
 # Features/Requirements
