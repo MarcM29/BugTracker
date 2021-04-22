@@ -17,7 +17,7 @@ Demo video (youtube): https://youtu.be/WOpiVQAd2NE <br /><br />
 - [x] -Provide a user friendly view consisting of open tickets vs. closed tickets, high vs. medium vs. low priority tickets, etc.  <br />
 - [x] -Provide proper authorization measures at appropriate places <br />
 
-- [x] -Add CSS and bootstrap to create clean UI (in progress)
+- [x] -Add CSS and bootstrap to create clean UI
 - [x] -Debug app (eternally in progress)
 
 - [ ] -Host this app (Azure?)
